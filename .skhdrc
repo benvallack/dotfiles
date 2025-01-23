@@ -1,0 +1,35 @@
+# Move windows to space. For some reason keys on bottom row of MacBook Pro don't work with this!
+cmd + alt + ctrl + shift - b : yabai -m window --space 1 --focus
+cmd + alt + ctrl + shift - c : yabai -m window --space 2 --focus
+cmd + alt + ctrl + shift - m : yabai -m window --space 3 --focus
+cmd + alt + ctrl + shift - g : yabai -m window --space 4 --focus
+cmd + alt + ctrl + shift - v : yabai -m window --space 5 --focus
+cmd + alt + ctrl + shift - q : yabai -m window --space 6 --focus
+cmd + alt + ctrl + shift - p : yabai -m window --space 7 --focus
+cmd + alt + ctrl + shift - n : yabai -m window --space 8 --focus
+cmd + alt + ctrl + shift - s : yabai -m window --space 9 --focus
+cmd + alt + ctrl + shift - z : yabai -m window --space 10 --focus
+cmd + alt + ctrl + shift - t : yabai -m window --space 11 --focus
+cmd + alt + ctrl + shift - r : yabai -m window --space 12 --focus
+
+# Add current window to first window to make a stack
+alt + ctrl + shift - i : yabai -m window --stack first
+
+# Cycle through stack 
+alt + ctrl + shift - u : yabai -m window --focus stack.prev
+alt + ctrl + shift - j : yabai -m window --focus stack.next
+
+# Toggles float mode for window. Hit twice to make a window leave a stack.
+alt + ctrl + shift - f : yabai -m window --toggle float
+
+# Move window focus using my vim positional keys 
+alt + ctrl + shift - e : yabai -m window --focus east
+alt + ctrl + shift - h : yabai -m window --focus west
+alt + ctrl + shift - o : yabai -m window --focus north
+alt + ctrl + shift - a : yabai -m window --focus south
+
+# Move window position (swapping places)
+cmd + alt + ctrl + shift - e : yabai -m window --swap east
+cmd + alt + ctrl + shift - h : yabai -m window --swap west
+cmd + alt + ctrl + shift - o : yabai -m window --swap north
+cmd + alt + ctrl + shift - a : yabai -m window --swap south
