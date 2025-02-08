@@ -1,0 +1,81 @@
+;; 32 Key Layout For MacBook Pro! 
+
+(defsrc
+  IntlBackslash  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab            q    w    e    r    t    y    u    i    o    p    [    ]    ret 
+  caps           a    s    d    f    g    h    j    k    l    ;    '    \ 
+  lsft           `    z    x    c    v    b    n    m    ,    .    /    rsft
+  lctl           lalt lmet          spc            rmet ralt
+) 
+
+(defvar
+  ;; Note: consider using different time values for your different fingers.
+  ;; For example, your pinkies might be slower to release keys and index
+  ;; fingers faster.
+  tap-time 200
+  hold-time 200 
+  hold-time-slow 300 
+)
+
+(defalias
+  meh  (multi ctl alt sft)
+  tmeh (tap-hold $tap-time $hold-time spc @meh)
+   l_cmd (layer-toggle cmd)
+   l_sys1 (layer-toggle sys1)
+   l_sys2 (layer-toggle sys2)
+   l_num (layer-toggle num)
+   s (tap-hold $tap-time $hold-time s @l_cmd)
+   h (tap-hold $tap-time $hold-time h @l_cmd)
+   t (tap-hold $tap-time $hold-time t @l_sys1)
+   a (tap-hold $tap-time $hold-time-slow a @l_sys1)
+   r (tap-hold $tap-time $hold-time r @l_sys2)
+   e (tap-hold $tap-time $hold-time e @l_sys2)
+   n (tap-hold $tap-time $hold-time-slow n @l_num)
+   i (tap-hold $tap-time $hold-time-slow i @l_num)
+   l (tap-hold $tap-time $hold-time-slow l lctl)
+   d (tap-hold $tap-time $hold-time d lalt)
+   w (tap-hold $tap-time $hold-time w lmet)
+   u (tap-hold $tap-time $hold-time-slow u lctl)
+   o (tap-hold $tap-time $hold-time o lalt)
+   f (tap-hold $tap-time $hold-time f rmet)
+   d_h (tap-hold $tap-time $hold-time del home)
+   p_e (tap-hold $tap-time $hold-time M-[ end)
+)
+
+(deflayer graphite 
+  XX        XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX
+  XX        b    @l   @d  @w   z    '    @f    @o    @u    j    XX    XX    XX 
+  XX        @n   @r   @t  @s   g    y    @h   @a    @e    @i    XX    XX 
+  XX   XX   q    x    m   c    v    k    p    .    -    /   XX
+  XX   XX   XX         @tmeh        lsft XX  
+)
+
+(deflayer cmd 
+  XX   XX   XX     XX        XX     XX    XX    XX     XX    XX      XX     XX    XX    XX
+  XX   tab   esc    C-S-tab   C-tab  XX    XX    M-c    up    bspc    M-v    XX    XX    XX 
+  XX   M-tab   @d_h   @p_e      M-]    XX    XX    left   down  right   ret    XX    XX 
+  XX   XX   XX     XX        XX     XX    XX     XX     XX    XX      XX     XX    XX
+  XX   XX   XX @tmeh lsft XX  
+)
+
+(deflayer sys1 
+  XX   XX   XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX
+  XX   XX   A-3   S-3   S-4   XX    XX    S-,   S-.   S-6   XX    XX    XX    XX 
+  XX   `    S-`   -     \     S-=   =     [     ]     S-\   XX    XX    XX 
+  XX   XX   XX    XX    XX    XX    XX    XX    XX    XX    XX    XX   XX
+  XX   XX   XX @tmeh lsft XX  
+)
+(deflayer sys2 
+  XX   XX   XX    XX     XX     XX    XX    XX    XX    XX    XX    XX    XX    XX
+  XX   XX   S-2   A-[    A-[    XX    XX    S-9   S-0   ;     XX    XX    XX    XX 
+  XX   S-8  S-5   S-1    S-/    XX    XX    S-[   S-]   S-7   S-;   XX    XX 
+  XX   XX    XX      XX     XX    XX    XX    XX    XX    XX    XX    XX   XX
+  XX   XX   XX @tmeh lsft XX  
+)
+(deflayer num 
+  XX   XX    XX    XX        XX    XX    XX    XX    XX    XX    XX    XX    XX    XX
+  XX   1   2    3   4    5    6    7    8    9    0    =    XX    XX 
+  XX   XX    XX   XX      XX        XX     XX     XX   XX  XX   XX    XX    XX 
+  XX   XX    XX      XX         XX    XX    XX    XX    XX    XX    XX    XX   XX
+  XX   XX   XX @tmeh lsft XX
+)
