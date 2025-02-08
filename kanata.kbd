@@ -1,5 +1,4 @@
 ;; 32 Key Layout For MacBook Pro! 
-
 (defsrc
   IntlBackslash  1    2    3    4    5    6    7    8    9    0    -    =    bspc
   tab            q    w    e    r    t    y    u    i    o    p    [    ]    ret 
@@ -46,7 +45,7 @@
   XX        XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX
   XX        b    @l   @d  @w   z    '    @f    @o    @u    j    XX    XX    XX 
   XX        @n   @r   @t  @s   g    y    @h   @a    @e    @i    XX    XX 
-  XX   XX   q    x    m   c    v    k    p    .    -    /   XX
+  XX   XX   q    x    m   c    v    k    p    .    -    ,   XX
   XX   XX   XX         @tmeh        lsft XX  
 )
 
@@ -61,7 +60,7 @@
 (deflayer sys1 
   XX   XX   XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX
   XX   XX   A-3   S-3   S-4   XX    XX    S-,   S-.   S-6   XX    XX    XX    XX 
-  XX   `    S-`   -     \     S-=   =     [     ]     S-\   XX    XX    XX 
+  XX   `    S-`   -     \     S-=   =     [     ]     S-\   /    XX    XX 
   XX   XX   XX    XX    XX    XX    XX    XX    XX    XX    XX    XX   XX
   XX   XX   XX @tmeh lsft XX  
 )
