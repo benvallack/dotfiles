@@ -1,8 +1,8 @@
 (defsrc
-  IntlBackslash  1    2    3    4    5    6    7    8    9    0    -    =    bspc
-  tab            q    w    e    r    t    y    u    i    o    p    [    ]    ret 
-  caps           a    s    d    f    g    h    j    k    l    ;    '    \ 
-  lsft           `    z    x    c    v    b    n    m    ,    .    /    rsft
+  IntlBackslash  1    2    3    4    5       6    7    8    9    0       -    =    bspc
+  tab            q    w    e    r    t       y    u    i    o    p       [    ]    ret 
+  caps           a    s    d    f    g       h    j    k    l    ;       '    \ 
+  lsft   `       z    x    c    v    b       n    m    ,    .    /       rsft
   lctl           lalt lmet          spc            rmet ralt
 ) 
 
@@ -38,42 +38,61 @@
    f (tap-hold $tap-time $hold-time f rmet)
    d_h (tap-hold $tap-time $hold-time del home)
    p_e (tap-hold $tap-time $hold-time M-[ end)
+   c_uz_r (chord underscore r)
+   c_uz_t (chord underscore t)
+   c_uz_s (chord underscore s)
+   c_apos_h (chord apos h)
+   c_apos_a (chord apos a)
+)
+(defchords underscore 15
+  (r    ) @r
+  (  t  ) @t
+  (    s) @s
+  (r t  ) - 
+  (  t s) z 
 )
 
+(defchords apos 15
+  (h  ) @h
+  (  a) @a
+  (h a) ' 
+)
+
+
 (deflayer graphite 
-  XX        XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX
-  XX        b    @l   @d  @w   z    '    @f    @o    @u    j    XX    XX    XX 
-  XX        @n   @r   @t  @s   g    y    @h   @a    @e    @i    XX    XX 
-  XX   XX   q    x    m   c    v    k    p    .    -    ,   XX
-  XX   XX   XX         @tmeh        lsft XX  
+  XX        XX    XX    XX        XX        XX    XX    XX    XX    XX    XX    XX    XX    XX
+  XX        b    @l     @d        @w        v    k    @f    @o    @u    j    XX    XX    XX 
+  XX        @n   @c_uz_r @c_uz_t  @c_uz_s   g    y    @c_apos_h   @c_apos_a    @e    @i    XX    XX 
+  XX   XX   q    x      m         c       XX    lsft    p    .    ,    /   XX
+  XX   XX   XX         @tmeh        XX XX  
 )
 
 (deflayer cmd 
-  XX   XX   XX     XX        XX     XX    XX    XX     XX    XX      XX     XX    XX    XX
+  XX   XX   XX     XX        XX     XX     XX    XX     XX    XX      XX     XX    XX    XX
   XX   tab   esc    C-S-tab   C-tab  XX    XX    M-c    up    bspc    M-v    XX    XX    XX 
-  XX   M-tab   @d_h   @p_e      M-]    XX    XX    left   down  right   ret    XX    XX 
-  XX   XX   XX     XX        XX     XX    XX     XX     XX    XX      XX     XX    XX
-  XX   XX   XX lmet lsft XX  
+  XX   M-tab   @d_h   @p_e      M-]    C-M-S-4    XX    left   down  right   ret    XX    XX 
+  XX   XX   XX     XX        XX     XX    XX     lsft     XX    XX      XX     XX    XX
+  XX   XX   XX lmet XX XX 
 )
 
 (deflayer sys1 
-  XX   XX   XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX
-  XX   XX   A-3   S-3   S-4   XX    XX    S-,   S-.   S-6   XX    XX    XX    XX 
-  XX   `    S-`   -     \     S-=   =     [     ]     S-\   /    XX    XX 
-  XX   XX   XX    XX    XX    XX    XX    XX    XX    XX    XX    XX   XX
-  XX   XX   XX lmet lsft XX  
+  XX         XX    XX    XX    XX    XX      XX    XX    XX    XX    XX     XX    XX    XX
+  XX         S-1   A-3   S-3   S-4   S-5     S-6   S-7   S-8   S-9   S-0    XX    XX    XX 
+  XX         `     S-2   -     \     S-=     XX    S-;   ;     [     ]      XX    XX
+  XX   XX    XX    XX    XX    XX    XX      lsft    +     =     S-[   S-]    XX     
+  XX   XX   XX lmet XX XX 
 )
 (deflayer sys2 
-  XX   XX   XX    XX     XX     XX    XX    XX    XX    XX    XX    XX    XX    XX
-  XX   XX   S-2   A-[    A-[    XX    XX    S-9   S-0   ;     XX    XX    XX    XX 
-  XX   S-8  S-5   S-1    S-/    XX    XX    S-[   S-]   S-7   S-;   XX    XX 
-  XX   XX    XX      XX     XX    XX    XX    XX    XX    XX    XX    XX   XX
-  XX   XX   XX lmet lsft XX  
+  XX        XX   XX    XX     XX     XX       XX    XX    XX    XX     XX    XX    XX    XX
+  XX        XX   XX    A-]    S-A-]    M-v       XX    XX    XX    XX     XX    XX    XX    XX 
+  XX        XX   XX    A-[    S-A-[     XX     XX       XX    XX    XX    XX   XX     XX 
+  XX   XX   XX   XX    XX     M-c    XX     lsft     XX    XX      XX     XX    XX
+  XX   XX   XX lmet XX XX 
 )
 (deflayer num 
-  XX   XX    XX    XX        XX    XX    XX    XX    XX    XX    XX    XX    XX    XX
-  XX   1   2    3   4    5    6    7    8    9    0    =    XX    XX 
-  XX   XX    XX   XX      XX        XX     XX     XX   XX  XX   XX    XX    XX 
-  XX   XX    XX      XX         XX    XX    XX    XX    XX    XX    XX    XX   XX
-  XX   XX   XX lmet lsft XX
+  XX         XX    XX   XX     XX     XX       XX    XX    XX    XX    XX    XX    XX    XX
+  XX         XX    XX   XX     XX     XX       XX    7     8     9     0     XX    XX    XX
+  XX         XX    XX   XX     XX     XX       XX    4     5     6     .     XX    XX     
+  XX   XX    XX    XX   XX     XX     XX     lsft    1     2     3     XX    XX
+  XX   XX   XX lmet XX XX 
 )
